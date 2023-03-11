@@ -1,29 +1,15 @@
 import * as React from 'react'
 
-const welcome = {
-    greeting: 'Hey',
-    title: 'React!'
-}
-
-const numbers = [1, 2, 3]
-
-function renderNumbersFromArray(){
-    return numbers.map(num => <h3>{num}</h3>)
-}
-
-function getWelcome(){
-    return welcome;
-}
+const title = 'React!'
 
 function App() {
     return (
         <div>
             <h1>
-                { getWelcome().greeting } { getWelcome().title }
+                Hello World
             </h1>
             <label htmlFor="search">Search: </label>
             <input id="search" type="text"/>
-            { renderNumbersFromArray() }
         </div>
     )
 }
