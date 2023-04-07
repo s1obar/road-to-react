@@ -23,17 +23,21 @@ const App = () => {
         }
     ]
 
+    const [searchTerm, setSearchTerm] = React.useState('')
+
     const handleSearch = (event) => {
-        console.log("Printed from App component which is upwards from Search component. " +
-            "It is done using the callback handler. Search term: " + event.target.value)
+        setSearchTerm(event.target.value)
+        console.log(event.target.value)
     }
+
+    const filteredStories = stories.filter((story) => story.title.toLowerCase().includes(searchTerm.toLowerCase()))
 
     return (
         <div>
             <h1>Road to React</h1>
             <Search onSearch={handleSearch}/>
             <hr/>
-            <List items={stories}/>
+            <List items={filteredStories}/>
         </div>
     )
 }

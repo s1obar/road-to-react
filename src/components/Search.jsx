@@ -3,12 +3,6 @@ import * as React from 'react'
 const Search = (props) => {
     console.log("Search renders")
 
-    const [searchTerm, setSearchTerm] = React.useState('')
-    const handleChange = (event) => {
-        setSearchTerm(event.target.value)
-        props.onSearch(event)
-    }
-
     const handleBlur = (event) => {
         console.log(event.target.value)
     }
@@ -16,10 +10,7 @@ const Search = (props) => {
     return (
         <div>
             <label htmlFor="search">Search: </label>
-            <input id="search" type="text" onChange={handleChange} onBlur={handleBlur}/>
-            <p>
-                Searching for <strong>{searchTerm}</strong>.
-            </p>
+            <input id="search" type="text" onChange={props.onSearch} onBlur={handleBlur}/>
         </div>
     )
 }
