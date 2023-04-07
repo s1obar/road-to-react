@@ -22,13 +22,19 @@ const App = () => {
             objectID: 1
         }
     ]
+    /**
+        ?? - Javascript's nullish coalescing operator - evaluates empty string as true:
+                localStorage.getItem('search') ?? 'React'
+        || - evaluates empty string as false
+     **/
+    const [searchTerm, setSearchTerm] = React.useState(localStorage.getItem('search') ?? 'React')
 
-    const [searchTerm, setSearchTerm] = React.useState('')
+    React.useEffect(() => {
+        localStorage.setItem('search', searchTerm)
+    }, [searchTerm])
 
-    const handleSearch = ({target}) => {
-        const {value} = target
+    const handleSearch = ({target:{value}}) => {
         setSearchTerm(value)
-        console.log(value)
     }
 
     const filteredStories = stories.filter(({title}) => title.toLowerCase().includes(searchTerm.toLowerCase()))
