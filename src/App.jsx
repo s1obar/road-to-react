@@ -24,15 +24,17 @@ const App = () => {
     ]
     /**
         ?? - Javascript's nullish coalescing operator - evaluates empty string as true:
-                localStorage.getItem('search') ?? 'React'
+                localStorage.getItem(key) ?? 'React'
         || - evaluates empty string as false
      **/
-    const [searchTerm, setSearchTerm] = React.useState(localStorage.getItem('search') ?? 'React')
+    const useStorageState = (key, initialState) => {
+        const [value, setValue] = React.useState(localStorage.getItem(key) ?? initialState)
+        React.useEffect(() => {localStorage.setItem(key, value)}, [value, key])
 
-    React.useEffect(() => {
-        localStorage.setItem('search', searchTerm)
-    }, [searchTerm])
+        return [value, setValue]
+    }
 
+    const [searchTerm, setSearchTerm] = useStorageState('search', 'React')
     const handleSearch = ({target:{value}}) => {
         setSearchTerm(value)
     }
