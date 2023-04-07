@@ -23,14 +23,15 @@ const App = () => {
         }
     ]
 
-    const [searchTerm, setSearchTerm] = React.useState('Red')
+    const [searchTerm, setSearchTerm] = React.useState('')
 
-    const handleSearch = (event) => {
-        setSearchTerm(event.target.value)
-        console.log(event.target.value)
+    const handleSearch = ({target}) => {
+        const {value} = target
+        setSearchTerm(value)
+        console.log(value)
     }
 
-    const filteredStories = stories.filter((story) => story.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredStories = stories.filter(({title}) => title.toLowerCase().includes(searchTerm.toLowerCase()))
 
     return (
         <div>

@@ -1,19 +1,18 @@
 import * as React from 'react'
 
-const Item = (props) => {
+const Item = ({item: {url, title, author, num_comments, points}}) => {
     console.log("Item renders")
 
     return <li>
-        <span>{props.item.title}</span>
+        <span>{title}</span>
         <span>
-                        <a href={props.item.url}>{props.item.title}</a>
+                        <a href={url}>{title}</a>
                     </span>
-        <span>{props.item.author}</span>
-        <span>{props.item.num_comments}</span>
-        <span>{props.item.points}</span>
+        <span>{author}</span>
+        <span>{num_comments}</span>
+        <span>{points}</span>
     </li>
 }
-
 
 
 export default Item
