@@ -2,9 +2,6 @@ import * as React from 'react'
 import Item from "./Item.jsx";
 
 const List = ({items}) => {
-    console.log("List renders")
-
-
     /**
         Different syntax for spread operator and rest operator
         const itemElementsSpreadOperator = items.map((item) => <Item key={item.objectID} item={item}/>)

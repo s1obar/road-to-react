@@ -1,9 +1,9 @@
 import * as React from 'react'
 import InputWithLabel from "./components/InputWithLabel.jsx";
 import List from "./components/List.jsx";
+import Button from "./components/Button.jsx";
 
 const App = () => {
-    console.log("App renders")
     const stories = [
         {
             title: 'React',
@@ -39,6 +39,17 @@ const App = () => {
         setSearchTerm(value)
     }
 
+    // const [count, setCount] = React.useState(0);
+    const [isOpen, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
     const filteredStories = stories.filter(({title}) => title.toLowerCase().includes(searchTerm.toLowerCase()))
 
     return (
@@ -47,6 +58,10 @@ const App = () => {
             <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={handleSearch}><strong>Search:</strong></InputWithLabel>
             <hr/>
             <List items={filteredStories}/>
+            <Button isOpen={isOpen} onCLick={handleOpen}>Open</Button>
+            <br/>
+            <Button isOpen={isOpen} onCLick={handleClose}>Close</Button>
+            {isOpen && <div>Content</div>}
         </div>
     )
 }
