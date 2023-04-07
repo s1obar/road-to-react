@@ -10,7 +10,7 @@ const Search = (props) => {
     return (
         <div>
             <label htmlFor="search">Search: </label>
-            <input id="search" type="text" onChange={props.onSearch} onBlur={handleBlur}/>
+            <input id="search" type="text" value={props.search} onChange={props.onSearch} onBlur={handleBlur}/>
         </div>
     )
 }
