@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-const Search = () => {
+const Search = (props) => {
     console.log("Search renders")
 
     const [searchTerm, setSearchTerm] = React.useState('')
     const handleChange = (event) => {
         setSearchTerm(event.target.value)
+        props.onSearch(event)
     }
 
     const handleBlur = (event) => {

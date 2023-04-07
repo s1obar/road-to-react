@@ -23,10 +23,15 @@ const App = () => {
         }
     ]
 
+    const handleSearch = (event) => {
+        console.log("Printed from App component which is upwards from Search component. " +
+            "It is done using the callback handler. Search term: " + event.target.value)
+    }
+
     return (
         <div>
             <h1>Road to React</h1>
-            <Search/>
+            <Search onSearch={handleSearch}/>
             <hr/>
             <List items={stories}/>
         </div>
