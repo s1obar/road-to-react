@@ -3,7 +3,7 @@ import Search from "./components/Search.jsx";
 import List from "./components/List.jsx";
 
 const App = () => {
-    console.log("App renders")
+    console.log("App rendered")
     const stories = [
         {
             title: 'React',
