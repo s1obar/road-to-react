@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Search from "./components/Search.jsx";
+import InputWithLabel from "./components/InputWithLabel.jsx";
 import List from "./components/List.jsx";
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
     return (
         <div>
             <h1>Road to React</h1>
-            <Search search={searchTerm} onSearch={handleSearch}/>
+            <InputWithLabel id="search" value={searchTerm} onInputChange={handleSearch}><strong>Search:</strong></InputWithLabel>
             <hr/>
             <List items={filteredStories}/>
         </div>
