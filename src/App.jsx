@@ -55,13 +55,14 @@ const App = () => {
     return (
         <div>
             <h1>Road to React</h1>
+            {isOpen && <div>Open button was clicked</div>}
+
             <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={handleSearch}><strong>Search:</strong></InputWithLabel>
             <hr/>
             <List items={filteredStories}/>
             <Button isOpen={isOpen} onCLick={handleOpen}>Open</Button>
             <br/>
             <Button isOpen={isOpen} onCLick={handleClose}>Close</Button>
-            {isOpen && <div>Content</div>}
         </div>
     )
 }
