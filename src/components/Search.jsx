@@ -8,10 +8,11 @@ const Search = ({search, onSearch}) => {
     // }
 
     return (
-        <div>
+        // <> can also be use instead of <React.Fragment>
+        <React.Fragment>
             <label htmlFor="search">Search: </label>
             <input id="search" type="text" value={search} onChange={onSearch} /*onBlur={handleBlur}*//>
-        </div>
+        </React.Fragment>
     )
 }
 
