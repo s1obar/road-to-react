@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const InputWithLabel = ({id, label, type = 'text', value, children, onInputChange}) => {
+const InputWithLabel = ({id, label, type = 'text', value, children, onInputChange, isFocused, autoComplete = 'off'}) => {
     console.log("Search renders")
 
     // const handleBlur = (event) => {
@@ -10,7 +10,7 @@ const InputWithLabel = ({id, label, type = 'text', value, children, onInputChang
             <>
                 <label htmlFor={id}>{children}</label>
                 &nbsp;
-                <input id={id} type={type} value={value} onChange={onInputChange} /*onBlur={handleBlur}*//>
+                <input id={id} autoComplete={autoComplete} type={type} value={value} autoFocus={isFocused} onChange={onInputChange} /*onBlur={handleBlur}*//>
             </>
         )
 }

@@ -44,7 +44,7 @@ const App = () => {
     return (
         <div>
             <h1>Road to React</h1>
-            <InputWithLabel id="search" value={searchTerm} onInputChange={handleSearch}><strong>Search:</strong></InputWithLabel>
+            <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={handleSearch}><strong>Search:</strong></InputWithLabel>
             <hr/>
             <List items={filteredStories}/>
         </div>
