@@ -2,6 +2,7 @@ import * as React from 'react'
 import InputWithLabel from "./components/InputWithLabel.jsx";
 import List from "./components/List.jsx";
 import Button from "./components/Button.jsx";
+import RadioButton from "./components/RadioButton.jsx";
 
 const App = () => {
     const stories = [
@@ -42,6 +43,16 @@ const App = () => {
     }
 
     const [isOpen, setOpen] = React.useState( false);
+    const [favorite, setFavorite] = React.useState(null);
+
+
+    const handleCatChange = () => {
+        setFavorite('cat')
+    }
+
+    const handleDogChange = () => {
+        setFavorite('dog')
+    }
 
     const handleOpen = () => {
         setOpen(true)
@@ -68,6 +79,9 @@ const App = () => {
             <Button isOpen={isOpen} onCLick={handleClose}>Close</Button>
             <br/>
             <Button id='disabled_button' disabled={isDisabled} isOpen={isOpen} onCLick={handleClose}>Disabled button</Button>
+            <br/>
+            <RadioButton label='Cat' checkedValue={favorite === 'cat'} onChange={handleCatChange}/>
+            <RadioButton label='Dog' checkedValue={favorite === 'dog'} onChange={handleDogChange}/>
         </div>
     )
 }

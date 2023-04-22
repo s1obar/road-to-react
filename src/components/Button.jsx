@@ -5,7 +5,6 @@ const Button = ({isOpen, type='button', onCLick, children, ...rest}) => {
         <div>
             <button type={type} onClick={onCLick} {...rest}>{children}</button>
             &nbsp;
-
         </div>
     )
 }
