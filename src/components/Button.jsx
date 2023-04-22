@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-const Button = ({isOpen, onCLick, children}) => {
+const Button = ({isOpen, type='button', onCLick, children, ...rest}) => {
     return (
         <div>
-            <button type="button" onClick={onCLick}>{children}</button>
+            <button type={type} onClick={onCLick} {...rest}>{children}</button>
             &nbsp;
 
         </div>

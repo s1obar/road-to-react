@@ -35,19 +35,22 @@ const App = () => {
     }
 
     const [searchTerm, setSearchTerm] = useStorageState('search', 'React')
+    const [isDisabled, setIsDisabled] = useStorageState('disabled_button',  true)
+
     const handleSearch = ({target:{value}}) => {
         setSearchTerm(value)
     }
 
-    // const [count, setCount] = React.useState(0);
-    const [isOpen, setOpen] = React.useState(false);
+    const [isOpen, setOpen] = React.useState( false);
 
     const handleOpen = () => {
         setOpen(true)
+        setIsDisabled('disabled')
     }
 
     const handleClose = () => {
         setOpen(false)
+        setIsDisabled('')
     }
 
     const filteredStories = stories.filter(({title}) => title.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -63,6 +66,8 @@ const App = () => {
             <Button isOpen={isOpen} onCLick={handleOpen}>Open</Button>
             <br/>
             <Button isOpen={isOpen} onCLick={handleClose}>Close</Button>
+            <br/>
+            <Button id='disabled_button' disabled={isDisabled} isOpen={isOpen} onCLick={handleClose}>Disabled button</Button>
         </div>
     )
 }
