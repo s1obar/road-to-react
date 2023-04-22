@@ -3,6 +3,7 @@ import InputWithLabel from "./components/InputWithLabel.jsx";
 import List from "./components/List.jsx";
 import Button from "./components/Button.jsx";
 import RadioButton from "./components/RadioButton.jsx";
+import Checkbox from "./components/Checkbox.jsx";
 
 const App = () => {
     const stories = [
@@ -36,7 +37,7 @@ const App = () => {
     }
 
     const [searchTerm, setSearchTerm] = useStorageState('search', 'React')
-    const [isDisabled, setIsDisabled] = useStorageState('disabled_button',  true)
+    const [isDisabled, setIsDisabled] = useStorageState('disabledButton',  true)
 
     const handleSearch = ({target:{value}}) => {
         setSearchTerm(value)
@@ -44,6 +45,8 @@ const App = () => {
 
     const [isOpen, setOpen] = React.useState( false);
     const [favorite, setFavorite] = React.useState(null);
+    const [isCheckedOne, setIsCheckedOne] = React.useState(false);
+    const [isCheckedTwo, setIsCheckedTwo] = React.useState(false);
 
 
     const handleCatChange = () => {
@@ -52,6 +55,13 @@ const App = () => {
 
     const handleDogChange = () => {
         setFavorite('dog')
+    }
+
+    const handleCheckboxOneChange = () => {
+        setIsCheckedOne(!isCheckedOne)
+    }
+    const handleCheckboxTwoChange = () => {
+        setIsCheckedTwo(!isCheckedTwo)
     }
 
     const handleOpen = () => {
@@ -78,10 +88,12 @@ const App = () => {
             <br/>
             <Button isOpen={isOpen} onCLick={handleClose}>Close</Button>
             <br/>
-            <Button id='disabled_button' disabled={isDisabled} isOpen={isOpen} onCLick={handleClose}>Disabled button</Button>
+            <Button id='disabledButton' disabled={isDisabled} isOpen={isOpen} onCLick={handleClose}>Disabled button</Button>
             <br/>
             <RadioButton label='Cat' checkedValue={favorite === 'cat'} onChange={handleCatChange}/>
             <RadioButton label='Dog' checkedValue={favorite === 'dog'} onChange={handleDogChange}/>
+            <Checkbox label='Checkbox 1' value={isCheckedOne} onChange={handleCheckboxOneChange}/>
+            <Checkbox label='Checkbox 2' value={isCheckedTwo} onChange={handleCheckboxTwoChange}/>
         </div>
     )
 }
